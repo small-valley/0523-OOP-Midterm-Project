@@ -2,17 +2,18 @@ import { Shop } from "./shop.js";
 import { ShoppingCart } from "./shopping-cart.js";
 
 export class App {
-    constructor() {
-        this.shop = new Shop();
-        this.shoppingCart = new ShoppingCart();
-    }
-    init() {
+    static _shop;
+    static _shoppingCart;
+    constructor() {}
+    static init() {
         $(async () => {
-            await this.shop.render();
+            App._shop = new Shop();
+            App._shoppingCart = new ShoppingCart();
+            await App._shop.render();
         });
     }
-    addProductToCart(product) {
-        this.shoppingCart.addToCart(product);
+    static addProductToCart(product) {
+        App._shoppingCart.addToCart(product);
     }
 }
-new App().init();
+App.init();
