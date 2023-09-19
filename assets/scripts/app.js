@@ -2,12 +2,10 @@ import { Shop } from "./shop.js";
 import { ShoppingCart } from "./shopping-cart.js";
 
 export class App {
-    static _shop;
-    static _shoppingCart;
+    static _shop = new Shop();
+    static _shoppingCart = new ShoppingCart();
     static init() {
         $(async () => {
-            App._shop = new Shop();
-            App._shoppingCart = new ShoppingCart();
             await App._shop.render();
         });
     }
