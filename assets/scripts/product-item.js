@@ -1,9 +1,12 @@
+import { App } from "./app.js";
+
 export class ProductItem {
     constructor(product) {
         this.product = product;
+        this.app = new App();
     }
     addToCart() {
-        console.log(this.product);
+        this.app.addProductToCart(this.product);
     }
     render() {
         return `<li class="product-item">
