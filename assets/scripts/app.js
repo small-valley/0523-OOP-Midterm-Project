@@ -1,10 +1,11 @@
 import { Product } from "./product.js";
-import { ProductItem } from "./product-item.js";
 import { ProductList } from "./product-list.js";
+import { ShoppingCart } from "./shopping-cart.js";
 
-new Product(1, "A", 100, "Product A", "").detail();
-const productItem = new ProductItem(new Product(2, "B", 200, "Product B", ""));
+const product = new Product(1, "A", 100, "Product A", "");
+product.detail();
 
 $(async () => {
     await new ProductList().render();
+    new ShoppingCart([product]).render();
 });
