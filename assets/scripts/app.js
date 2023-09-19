@@ -4,7 +4,6 @@ import { ShoppingCart } from "./shopping-cart.js";
 export class App {
     static _shop;
     static _shoppingCart;
-    constructor() {}
     static init() {
         $(async () => {
             App._shop = new Shop();
