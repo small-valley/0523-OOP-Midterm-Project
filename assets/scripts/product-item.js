@@ -16,9 +16,11 @@ export class ProductItem {
                 />
                 <div class="product-item__content">
                     <h2>${this.product.title}</h2>
-                    <h3>$${this.product.price}</h3>
+                    <h3>$${this.product.price.toFixed(2)}</h3>
                     <p>${this.product.description}</p>
-                    <button id="product-item-${this.product.id}">Add to Cart</button>
+                    <button id="product-item-${
+                        this.product.id
+                    }">Add to Cart</button>
                 </div>
             </div>
         </li>`;

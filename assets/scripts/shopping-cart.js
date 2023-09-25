@@ -1,28 +1,29 @@
 export class ShoppingCart {
     constructor() {
         this.items = [];
-        this._total = 0;
+        this.total = 0;
+        this.fixedValue = 2;
     }
 
-    get total() {
-        return this._total;
+    get _total() {
+        return this.total.toFixed(this.fixedValue);
     }
 
-    set total(price) {
-        this._total += price;
+    set _total(price) {
+        this.total += price;
     }
 
     addToCart(product) {
         this.items.push(product);
-        this.total = product.price;
+        this._total = product.price;
         this.render(true);
     }
 
     render(isUpdate = false) {
         if (isUpdate) {
-            $("h2#total").text(`Total: $${this.total}`);
+            $("h1#total").text(`Total: $${this._total}`);
         } else {
-            $("section.cart").append(`<h2 id="total">Total: $${this.total}</h2>
+            $("header.cart").append(`<h1 id="total">Total: $${this._total}</h1>
             <button>Order Now!</button>`);
         }
     }
